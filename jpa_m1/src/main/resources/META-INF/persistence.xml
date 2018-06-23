@@ -11,6 +11,7 @@
 
         <!--添加持久化类-->
         <class>com.ifox.hgx.jpa.entity.Customer</class>
+        <class>com.ifox.hgx.jpa.entity.Order</class>
 
         <properties>
             <!-- 连接数据库的基本信息 -->

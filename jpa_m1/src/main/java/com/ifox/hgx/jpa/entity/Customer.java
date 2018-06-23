@@ -1,6 +1,7 @@
 package com.ifox.hgx.jpa.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Table(name = "JPA_CUSTOMTERS")
 @Entity
@@ -13,6 +14,38 @@ public class Customer {
     private String email ;
     private Integer age ;
 
+    private Date createTime ;
+    private Date birth ;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    @Temporal(TemporalType.DATE)
+    public Date getBirth() {
+        return birth;
+    }
+
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
+
+    // pkColumnName = "PK_NAME",pkColumnValue = "CUSTOMER_ID"确定行
+    // valueColumnName = "PK_VALUE"确定列
+    //allocationSize 每次增加多少
+//    @TableGenerator(name = "ID_GENERATOR",table = "jap_id_generators",
+//            pkColumnName = "PK_NAME",pkColumnValue = "CUSTOMER_ID",
+//            valueColumnName = "PK_VALUE",initialValue = 1,allocationSize = 100
+//
+//    )
+//    @GeneratedValue(strategy = GenerationType.TABLE,generator = "ID_GENERATOR")
+
+//    GeneratedValue 生成方式:策略为 GenerationType.AUTO 自动选择
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     public Integer getId() {
@@ -32,6 +65,7 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    @Column(length = 50)
     public String getEmail() {
         return email;
     }
@@ -46,5 +80,23 @@ public class Customer {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    //不是需要映射的字段的 需要加上注解Transient
+    @Transient
+    public String getInfo(){
+        return "lastName:"+lastName+" Email:" +email ;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                ", createTime=" + createTime +
+                ", birth=" + birth +
+                '}';
     }
 }
