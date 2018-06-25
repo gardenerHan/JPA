@@ -46,7 +46,7 @@ public class Customer {
 //    @GeneratedValue(strategy = GenerationType.TABLE,generator = "ID_GENERATOR")
 
 //    GeneratedValue 生成方式:策略为 GenerationType.AUTO 自动选择
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Integer getId() {
         return id;
