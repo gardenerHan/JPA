@@ -2,6 +2,8 @@ package com.ifox.hgx.jpa.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Table(name = "JPA_CUSTOMTERS")
 @Entity
@@ -16,6 +18,20 @@ public class Customer {
 
     private Date createTime ;
     private Date birth ;
+
+    private Set<Order> orders = new HashSet<>() ;
+
+    //1-n 添加时,需要cascade = CascadeType.PERSIST 级联添加
+    //1-n 级联删除,需要CascadeType.REMOVE
+    @JoinColumn(name = "CUSTOMER_ID")
+    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
 
     @Temporal(TemporalType.TIMESTAMP)
     public Date getCreateTime() {
@@ -97,6 +113,7 @@ public class Customer {
                 ", age=" + age +
                 ", createTime=" + createTime +
                 ", birth=" + birth +
+                ", orders=" + orders +
                 '}';
     }
 }
