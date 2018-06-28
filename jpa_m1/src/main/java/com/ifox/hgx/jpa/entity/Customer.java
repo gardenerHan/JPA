@@ -23,8 +23,8 @@ public class Customer {
 
     //1-n 添加时,需要cascade = CascadeType.PERSIST 级联添加
     //1-n 级联删除,需要CascadeType.REMOVE
-    @JoinColumn(name = "CUSTOMER_ID")
-    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+    //@JoinColumn(name = "CUSTOMER_ID")
+    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE},mappedBy = "customer",fetch = FetchType.EAGER)
     public Set<Order> getOrders() {
         return orders;
     }

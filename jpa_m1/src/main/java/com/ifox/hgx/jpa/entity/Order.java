@@ -7,7 +7,9 @@ import javax.persistence.*;
 public class Order {
     private Integer id ;
     private String orderName ;
-//    private Customer customer ;
+    private Customer customer ;
+
+
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -28,14 +30,14 @@ public class Order {
         this.orderName = orderName;
     }
 
-////  @ManyToOne(fetch = FetchType.LAZY) 懒加载
-//    @JoinColumn(name = "CUSTOMER_ID")
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    public Customer getCustomer() {
-//        return customer;
-//    }
-//
-//    public void setCustomer(Customer customer) {
-//        this.customer = customer;
-//    }
+//  @ManyToOne(fetch = FetchType.LAZY) 懒加载
+    @JoinColumn(name = "CUSTOMER_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 }
