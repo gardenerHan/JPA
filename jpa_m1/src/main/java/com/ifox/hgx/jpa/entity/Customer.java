@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+@NamedQuery(name = "testNameQuery" ,query = "select c from Customer c where c.age = ?1")
 //@Cacheable
 @Table(name = "JPA_CUSTOMTERS")
 @Entity
@@ -21,6 +22,14 @@ public class Customer {
     private Date birth ;
 
     private Set<Order> orders = new HashSet<>() ;
+
+    public Customer() {
+    }
+
+    public Customer(String lastName, Integer age) {
+        this.lastName = lastName;
+        this.age = age;
+    }
 
     //1-n 添加时,需要cascade = CascadeType.PERSIST 级联添加
     //1-n 级联删除,需要CascadeType.REMOVE
