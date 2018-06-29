@@ -16,12 +16,21 @@
             <version>5.3.1.Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-entitymanager</artifactId>-->
+            <!--<version>5.3.1.Final</version>-->
+        <!--</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/hibernate/hibernate-entitymanager -->
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.3.1.Final</version>
+            <version>3.4.0.GA</version>
+            <type>pom</type>
         </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>

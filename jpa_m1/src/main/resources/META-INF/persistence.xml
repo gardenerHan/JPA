@@ -8,10 +8,13 @@
         <!--5.2版本以后，无法使用HibernatePersistence-->
         <!--如果JPA项目中只有一个实现产品，可以配置这个节点-->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
 
         <!--添加持久化类-->
         <class>com.ifox.hgx.jpa.entity.Customer</class>
         <class>com.ifox.hgx.jpa.entity.Order</class>
+        <class>com.ifox.hgx.jpa.entity.Manager</class>
+        <class>com.ifox.hgx.jpa.entity.Department</class>
 
         <properties>
             <!-- 连接数据库的基本信息 -->
