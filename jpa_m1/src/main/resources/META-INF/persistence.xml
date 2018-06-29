@@ -15,6 +15,18 @@
         <class>com.ifox.hgx.jpa.entity.Order</class>
         <class>com.ifox.hgx.jpa.entity.Manager</class>
         <class>com.ifox.hgx.jpa.entity.Department</class>
+        <class>com.ifox.hgx.jpa.entity.Category</class>
+        <class>com.ifox.hgx.jpa.entity.Item</class>
+
+        <!--
+		配置二级缓存的策略
+		ALL：所有的实体类都被缓存
+		NONE：所有的实体类都不被缓存.
+		ENABLE_SELECTIVE：标识 @Cacheable(true) 注解的实体类将被缓存
+		DISABLE_SELECTIVE：缓存除标识 @Cacheable(false) 以外的所有实体类
+		UNSPECIFIED：默认值，JPA 产品默认值将被使用
+		-->
+        <!--<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>-->
 
         <properties>
             <!-- 连接数据库的基本信息 -->
@@ -27,6 +39,11 @@
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!--&lt;!&ndash; 二级缓存相关 &ndash;&gt;-->
+            <!--<property name="hibernate.cache.use_second_level_cache" value="true"/>-->
+            <!--<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.internal.EhCacheRegionFactory"/>-->
+            <!--<property name="hibernate.cache.use_query_cache" value="true"/>-->
 
         </properties>
     </persistence-unit>

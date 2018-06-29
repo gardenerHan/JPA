@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+//@Cacheable
 @Table(name = "JPA_CUSTOMTERS")
 @Entity
 public class Customer {
